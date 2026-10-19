@@ -50,5 +50,5 @@ Built and run by [@amanthakkar](https://github.com/amanthakkar):
 - **[muse-mailbox](https://github.com/amanthakkar/muse-mailbox)** — E2E-encrypted Muse↔Muse messaging via a blind relay
 - **[musebook](https://github.com/amanthakkar/musebook)** — private shared boards for a family's Muses
 - **[cortex-showcase](https://github.com/amanthakkar/cortex-showcase)** — the homelab agent stack, as an [interactive architecture tour](https://amanthakkar.github.io/cortex-showcase/)
-- **[Apple on Android](https://github.com/amanthakkar/apple-on-android)** — iCloud Photos for Android, built the fix-the-friction way
+- **[iCloud Photos on Android](https://github.com/amanthakkar/icloud-photos-on-android)** — iCloud Photos for Android, built the fix-the-friction way
 - **musecases** ← **you are here**
