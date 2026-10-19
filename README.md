@@ -14,9 +14,11 @@ Interactive catalog: **https://amanthakkar.github.io/musecases/**
 | [gadget-google-nest-thermostats](skills/gadget-google-nest-thermostats/SKILL.md) | Read and adjust Nest thermostats via Google's Smart Device Management API through a self-hosted bridge (e.g. Home Assistant). The catalog's **first thermostat skill**. | [PR #222](https://github.com/facebookincubator/muse-gadget-sdk/pull/222) — open, CLA signed |
 | [gadget-bambu-lab-printers](skills/gadget-bambu-lab-printers/SKILL.md) | Bambu Lab printer status incl. AMS filament via cloud/LAN; LAN print dispatch only where the owner enabled Developer Mode — with the trade-offs stated *before* anyone flips it. | [PR #224](https://github.com/facebookincubator/muse-gadget-sdk/pull/224) — open, CLA signed |
 
-Context that makes these fun: as of October 2026, **no community member had contributed a
-skill to the catalog yet** — #222 and #224 are the only skill PRs in the queue. If they merge,
-these are the first community-contributed skills in muse-gadget-sdk.
+Context that makes these fun: filed on 16 Oct 2026, **#222 and #224 were the first
+community skill PRs in the catalog's queue** — no community member had contributed a skill
+before them. A second contributor joined the queue on 19 Oct (#251, Ecowitt gateways).
+If #222/#224 merge, they are the first community-contributed skills in muse-gadget-sdk.
+Status (19 Oct 2026): open, CLA signed, checks green, awaiting human review.
 
 ## Design principles (visible in every skill)
 
