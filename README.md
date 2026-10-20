@@ -1,5 +1,6 @@
 # musecases
 
+[![Live catalog](https://img.shields.io/badge/live-interactive%20catalog-blue)](https://amanthakkar.github.io/musecases/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 **Muse, put to work.** A working showcase of [Muse](https://muse.ai) gadget skills I've
 written — each one dogfooded on my own hardware first, then contributed upstream to Meta's
 [muse-gadget-sdk](https://github.com/facebookincubator/muse-gadget-sdk) catalog.
