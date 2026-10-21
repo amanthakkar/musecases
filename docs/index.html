@@ -25,7 +25,8 @@
 <p class="sub">Muse gadget skills I've written, dogfooded on my own hardware, and contributed to Meta's
 <a href="https://github.com/facebookincubator/muse-gadget-sdk">muse-gadget-sdk</a> catalog.
 Filed 16 Oct 2026, these were the <b>first community skill PRs in the upstream queue</b> — a second
-contributor joined on 19 Oct (#251). Open, CLA signed, awaiting review. Tap a skill for the full picture.</p>
+contributor joined on 19 Oct (#251). Open, CLA signed, awaiting review. A fourth skill — Home
+Assistant gateways — is drafted here in the lab (below). Tap a skill for the full picture.</p>
 <div class="grid" id="grid"></div>
 <section id="detail"></section>
 <section><h2 style="margin-top:0">Design principles</h2>
@@ -61,13 +62,20 @@ const SKILLS = {
   setup:"Status works with cloud or LAN access. Dispatch requires Developer Mode, enabled by the owner on the touchscreen — the skill explains exactly what that costs before anyone decides.",
   limits:"Cloud print dispatch is unavailable to third parties (closed ecosystem, stated plainly); Developer Mode disables Bambu Handy + cloud while on; the skill never enables it on the user's behalf.",
   tip:"💡 Tip: dispatch is gated on the printer being idle, the loaded filament matching the job, and per-print approval — the same discipline as a careful human operator.",
-  pr:"https://github.com/facebookincubator/muse-gadget-sdk/pull/224", prLabel:"PR #224 — Bambu Lab"}
+  pr:"https://github.com/facebookincubator/muse-gadget-sdk/pull/224", prLabel:"PR #224 — Bambu Lab"},
+ ha:{icon:"🏠", name:"gadget-home-assistant-gateways", first:"The catalog has no Home Assistant skill — this drafts the missing one",
+  badge:"In the lab",
+  what:"Reads state — and, only on explicit request, calls services — on the entities an existing Home Assistant install already exposes: climate, lights, presence, covers, and the sensors other integrations publish there.",
+  setup:"Needs a running Home Assistant with an owner-created long-lived token and an agreed read/action allowlist. Local network only — the skill never asks anyone to expose HA to the internet.",
+  limits:"Read-only by default; no automation/config edits; locks, covers and alarms get a spoken confirmation first; a 200 from a service call is never reported as success until a re-read confirms the achieved state.",
+  tip:"💡 Tip: written against a production HA that already bridges this home's Nest thermostats and Tesla presence — the gateway view is the point: one entity model instead of re-integrating every ecosystem.",
+  pr:null, prLabel:"Not filed yet — drafted here first; PR planned once #222/#224 land, so the queue isn't flooded"}
 };
 const grid=document.getElementById('grid'), detail=document.getElementById('detail');
 function show(key){
  const s=SKILLS[key];
  document.querySelectorAll('.skill').forEach(b=>b.classList.toggle('sel',b.dataset.k===key));
- detail.innerHTML=`<h2 style="margin-top:0">${s.icon} ${s.name} <span class="badge">PR open</span></h2>
+ detail.innerHTML=`<h2 style="margin-top:0">${s.icon} ${s.name} <span class="badge">${s.badge||"PR open"}</span></h2>
  <p class="tip" style="border:none;background:none;padding:0 0 6px;color:#4ade80"><b>${s.first}</b></p>
  <div class="kv">
   <div><b>What it does</b><br>${s.what}</div>
@@ -75,7 +83,7 @@ function show(key){
   <div><b>Honest limits</b><br>${s.limits}</div>
  </div>
  <p class="tip" style="margin-top:12px">${s.tip}</p>
- <p style="font-size:14px">Upstream: <a href="${s.pr}">${s.prLabel}</a> · Full text: <a href="https://github.com/amanthakkar/musecases/blob/main/skills/${s.name}/SKILL.md">SKILL.md in this repo</a></p>`;
+ <p style="font-size:14px">Upstream: ${s.pr?`<a href="${s.pr}">${s.prLabel}</a>`:s.prLabel} · Full text: <a href="https://github.com/amanthakkar/musecases/blob/main/skills/${s.name}/SKILL.md">SKILL.md in this repo</a></p>`;
 }
 Object.entries(SKILLS).forEach(([k,s])=>{
  const b=document.createElement('button'); b.className='skill'; b.dataset.k=k;
