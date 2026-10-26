@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta property="og:title" content="musecases — Muse put to work on real hardware">
-<meta property="og:description" content="Gadget skills dogfooded on real hardware and contributed to Meta’s muse-gadget-sdk: Tesla, Nest thermostats, Bambu Lab printers, Home Assistant.">
+<meta property="og:description" content="Gadget skills dogfooded on real hardware and contributed to Meta’s muse-gadget-sdk: Tesla, Nest thermostats, Bambu Lab printers, Home Assistant, Jellyfin.">
 <meta property="og:image" content="https://amanthakkar.github.io/musecases/social-preview.png">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
@@ -30,8 +30,9 @@
 <p class="sub">Muse gadget skills I've written, dogfooded on my own hardware, and contributed to Meta's
 <a href="https://github.com/facebookincubator/muse-gadget-sdk">muse-gadget-sdk</a> catalog.
 Filed 16 Oct 2026, these were the <b>first community skill PRs in the upstream queue</b> — a second
-contributor joined on 19 Oct (#251). Open, CLA signed, awaiting review. A fourth skill — Home
-Assistant gateways — is drafted here in the lab (below). Tap a skill for the full picture.</p>
+contributor joined on 19 Oct (#251). Open, CLA signed, awaiting review. Two more skills —
+Home Assistant gateways and Jellyfin media servers — are drafted here in the lab (below).
+Tap a skill for the full picture.</p>
 <div class="grid" id="grid"></div>
 <section id="detail"></section>
 <section><h2 style="margin-top:0">Design principles</h2>
@@ -74,6 +75,13 @@ const SKILLS = {
   setup:"Needs a running Home Assistant with an owner-created long-lived token and an agreed read/action allowlist. Local network only — the skill never asks anyone to expose HA to the internet.",
   limits:"Read-only by default; no automation/config edits; locks, covers and alarms get a spoken confirmation first; a 200 from a service call is never reported as success until a re-read confirms the achieved state.",
   tip:"💡 Tip: written against a production HA that already bridges this home's Nest thermostats and Tesla presence — the gateway view is the point: one entity model instead of re-integrating every ecosystem.",
+  pr:null, prLabel:"Not filed yet — drafted here first; PR planned once #222/#224 land, so the queue isn't flooded"},
+ jellyfin:{icon:"🎬", name:"gadget-jellyfin-servers", first:"The catalog has no media-server skill — this drafts the missing one",
+  badge:"In the lab",
+  what:"Reads what is playing across the sessions of an existing self-hosted Jellyfin server, searches its library as a scoped user, and — only on explicit request — controls a controllable client's playback (pause, resume, stop, start an item).",
+  setup:"Needs a running Jellyfin and a dedicated limited (non-admin) user whose token the owner creates; remote control of other users' sessions is a Jellyfin permission that stays off unless the owner turns it on deliberately. Local network only.",
+  limits:"Read-only by default; a server-wide API key is effectively admin, so the skill prefers the limited user's token; no deletes, scans, or server admin; viewing history is household data — another member's watching is theirs to share.",
+  tip:"💡 Tip: written against a production Jellyfin on a home Pi — playback position arrives in ticks (10,000,000 per second), and starting a stream there can start a transcode, so the skill names the client and item before it ever presses play.",
   pr:null, prLabel:"Not filed yet — drafted here first; PR planned once #222/#224 land, so the queue isn't flooded"}
 };
 const grid=document.getElementById('grid'), detail=document.getElementById('detail');

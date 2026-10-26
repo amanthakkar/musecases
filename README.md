@@ -15,6 +15,7 @@ Interactive catalog: **https://amanthakkar.github.io/musecases/**
 | [gadget-google-nest-thermostats](skills/gadget-google-nest-thermostats/SKILL.md) | Read and adjust Nest thermostats via Google's Smart Device Management API through a self-hosted bridge (e.g. Home Assistant). The catalog's **first thermostat skill**. | [PR #222](https://github.com/facebookincubator/muse-gadget-sdk/pull/222) — open, CLA signed |
 | [gadget-bambu-lab-printers](skills/gadget-bambu-lab-printers/SKILL.md) | Bambu Lab printer status incl. AMS filament via cloud/LAN; LAN print dispatch only where the owner enabled Developer Mode — with the trade-offs stated *before* anyone flips it. | [PR #224](https://github.com/facebookincubator/muse-gadget-sdk/pull/224) — open, CLA signed |
 | [gadget-home-assistant-gateways](skills/gadget-home-assistant-gateways/SKILL.md) | Read state — and, only on explicit request, call services — on the entities an existing Home Assistant install already exposes, scoped to an owner-approved allowlist. The upstream catalog's Gateways section (Zigbee2MQTT, ESPHome, ratgdo…) has **no Home Assistant skill**; this is the draft of the missing one, written against a production HA that already bridges this home's Nest thermostats and Tesla presence. | **In the lab** — drafted here first; PR planned once #222/#224 land, so the upstream queue isn't flooded |
+| [gadget-jellyfin-servers](skills/gadget-jellyfin-servers/SKILL.md) | See what is playing on — search the library of — and, only on explicit request, control a controllable client of an existing self-hosted Jellyfin media server, scoped to a dedicated limited user. The upstream catalog has **no media-server skill** (its nearest neighbours are single-device players and the Lyrion/Squeezebox server skill); this drafts the missing one, written against a production Jellyfin on a home Pi. | **In the lab** — drafted here first; PR planned once #222/#224 land, so the upstream queue isn't flooded |
 
 Context that makes these fun: filed on 16 Oct 2026, **#222 and #224 were the first
 community skill PRs in the catalog's queue** — no community member had contributed a skill
@@ -41,10 +42,10 @@ upstream becomes the source of truth and this repo becomes the showcase + lab fo
 
 ## What's next
 
-The Home Assistant gateway skill above is the current lab project. Beyond it, more of my
-homelab stack is already Muse-shaped — the natural follow-ons are skills for the rest of
-it (media, documents, home energy), contributed the same way: dogfood, document the
-limits honestly, upstream.
+The Home Assistant gateway skill and the Jellyfin media-server skill above are the
+current lab projects. Beyond them, more of my homelab stack is already Muse-shaped —
+the natural follow-ons are skills for the rest of it (documents, home energy),
+contributed the same way: dogfood, document the limits honestly, upstream.
 
 ---
 
