@@ -30,8 +30,8 @@
 <p class="sub">Muse gadget skills I've written, dogfooded on my own hardware, and contributed to Meta's
 <a href="https://github.com/facebookincubator/muse-gadget-sdk">muse-gadget-sdk</a> catalog.
 Filed 16 Oct 2026, these were the <b>first community skill PRs in the upstream queue</b> — a second
-contributor joined on 19 Oct (#251). Open, CLA signed, awaiting review. Two more skills —
-Home Assistant gateways and Jellyfin media servers — are drafted here in the lab (below).
+contributor joined on 19 Oct (#251). Open, CLA signed, awaiting review. Three more skills —
+Home Assistant gateways, Jellyfin media servers, and Paperless-ngx document archives — are drafted here in the lab (below).
 Tap a skill for the full picture.</p>
 <div class="grid" id="grid"></div>
 <section id="detail"></section>
@@ -82,6 +82,13 @@ const SKILLS = {
   setup:"Needs a running Jellyfin and a dedicated limited (non-admin) user whose token the owner creates; remote control of other users' sessions is a Jellyfin permission that stays off unless the owner turns it on deliberately. Local network only.",
   limits:"Read-only by default; a server-wide API key is effectively admin, so the skill prefers the limited user's token; no deletes, scans, or server admin; viewing history is household data — another member's watching is theirs to share.",
   tip:"💡 Tip: written against a production Jellyfin on a home Pi — playback position arrives in ticks (10,000,000 per second), and starting a stream there can start a transcode, so the skill names the client and item before it ever presses play.",
+  pr:null, prLabel:"Not filed yet — drafted here first; PR planned once #222/#224 land, so the queue isn't flooded"},
+ paperless:{icon:"🗄️", name:"gadget-paperless-servers", first:"The catalog has no document-archive skill — this drafts the missing one",
+  badge:"In the lab",
+  what:"Searches an existing self-hosted Paperless-ngx archive — full-text search over OCR'd documents, filtered by correspondent, tag, type, and date — and reads a document's contents only when the question needs them.",
+  setup:"Needs a running Paperless-ngx and a dedicated limited (non-admin) user whose API token the owner creates. Local network only — of everything in a homelab, a document archive is the last thing to expose to the internet.",
+  limits:"Read-only by default; downloads and uploads only on explicit request, deletes never; account and ID numbers are redacted in summaries unless the user asks for that number from that document; OCR figures are flagged as OCR when they are load-bearing.",
+  tip:"💡 Tip: written against a production Paperless on a home Pi that holds the household's sensitive paper — the skill knows the archive has two dates (created = the date on the document, added = when it arrived) and never confuses a March statement with a statement that arrived in March.",
   pr:null, prLabel:"Not filed yet — drafted here first; PR planned once #222/#224 land, so the queue isn't flooded"}
 };
 const grid=document.getElementById('grid'), detail=document.getElementById('detail');
