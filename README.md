@@ -21,8 +21,13 @@ Interactive catalog: **https://amanthakkar.github.io/musecases/**
 Context that makes these fun: filed on 16 Oct 2026, **#222 and #224 were the first
 community skill PRs in the catalog's queue** — no community member had contributed a skill
 before them. A second contributor joined the queue on 19 Oct (#251, Ecowitt gateways).
-If #222/#224 merge, they are the first community-contributed skills in muse-gadget-sdk.
-Status (19 Oct 2026): open, CLA signed, checks green, awaiting human review.
+The catalog's first community skill to actually *merge* was a later arrival — #123
+(Roku TVs and players, by @gurselm), merged 27 Oct 2026 — so #222/#224's claim is
+*first filed*, not *first merged*, and this page says so plainly.
+Status (28 Oct 2026): #222 and #224 open, CLA signed, checks green. The maintainer
+began moving on the skills queue on 27 Oct — merging #123 and syncing #222's branch
+with main the same evening — so a human review pass has started, though #222/#224
+themselves still await review.
 
 ## Design principles (visible in every skill)
 
